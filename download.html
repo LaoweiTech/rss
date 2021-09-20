@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>Download My RSS Reader</title>
+  <style type="text/css">
+    body {
+      font-size: 12px;
+    }
+
+    .button {
+      width: 140px;
+      line-height: 38px;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 1px #333;
+      border-radius: 5px;
+      margin: 0 20px 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button:nth-child(6n) {
+      margin-right: 0;
+    }
+
+    .button.blue {
+      border: 1px solid #1e7db9;
+      box-shadow: 0 1px 2px #8fcaee inset, 0 -1px 0 #497897 inset, 0 -2px 3px #8fcaee inset;
+      background: -webkit-linear-gradient(top, #42a4e0, #2e88c0);
+      background: -moz-linear-gradient(top, #42a4e0, #2e88c0);
+      background: linear-gradient(top, #42a4e0, #2e88c0);
+    }
+  </style>
+
+  <script type="text/javascript">
+    function download() {
+      window.location.href = 'https://www.iautorun.com/softs/rss.apk';
+    }
+  </script>
+</head>
+
+<body style="padding-top:50px;">
+  <div style="margin-bottom: 50px;text-align: center;">
+    <img src="images/logo.png" style="width: 120px;height:120px;" />
+    <h2>My RSS Reader</h2>
+  </div>
+
+  <div id="browser" style="display: none;text-align: center;">
+    <button type="button" class="button blue" onclick="download()">点击下载</button>
+  </div>
+
+  <div id="weixin" style="display: none;">
+    <p>
+    <h4>第一步：点击手机屏幕右上角</h4>
+    <div style="text-align: center;">
+      <img src="images/1.png" style="width: 100%;" />
+    </div>
+    </p>
+
+    <p>
+    <h4>第二步：选择用“浏览器”打开</h4>
+    <div style="text-align: center;">
+      <img src="images/2.png" style="width: 120px;height:120px;" />
+    </div>
+    </p>
+  </div>
+</body>
+
+</html>
+<script type="text/javascript">
+  window.onload = function () {
+    if (isWeiXin()) {
+      document.getElementById("browser").style.display = "none";
+      document.getElementById("weixin").style.display = "block";
+    } else {
+      document.getElementById("browser").style.display = "block";
+      document.getElementById("weixin").style.display = "none";
+
+      download();
+    }
+  };
+  function isWeiXin() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>
